@@ -1,67 +1,46 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Navbar.css';
-import 'font-awesome/css/font-awesome.min.css';  // Importing Font Awesome Icons
+import 'font-awesome/css/font-awesome.min.css'; 
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState('home');
-
-  const handleLinkClick = (link) => {
-    setActiveLink(link);
-  };
-
   return (
     <nav className="navbar">
-      {/* Logo Section */}
       <div className="logo">
         Codersaura
       </div>
 
-      {/* Navbar Links */}
       <ul className="nav-links">
         <li>
-          <a
-            href="#home"
-            className={activeLink === 'home' ? 'active' : ''}
-            onClick={() => handleLinkClick('home')}
-          >
-            HOME
-          </a>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => isActive ? 'active' : ''}
+          >HOME</NavLink>
         </li>
         <li>
           <a
             href="#products"
-            className={activeLink === 'products' ? 'active' : ''}
-            onClick={() => handleLinkClick('products')}
-          >
-            PRODUCTS
-          </a>
+          >PRODUCTS</a>
         </li>
         <li>
           <a
             href="#about"
-            className={activeLink === 'about' ? 'active' : ''}
-            onClick={() => handleLinkClick('about')}
-          >
-            ABOUT
-          </a>
+          >ABOUT</a>
         </li>
         <li>
-          <a
-            href="#contact"
-            className={activeLink === 'contact' ? 'active' : ''}
-            onClick={() => handleLinkClick('contact')}
-          >
-            CONTACT
-          </a>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => isActive ? 'active' : ''}
+          >CONTACT</NavLink>
         </li>
       </ul>
 
-      {/* Right-side Icons for Cart and Watchlist */}
+
       <div className="navbar-icons">
         <i className="fa fa-heart icon" title="Watchlist"></i>
         <i className="fa fa-shopping-cart icon" title="Cart"></i>
-  <i className="fa fa-user icon" title="Account"></i> {/* User icon */}
-
+        <i className="fa fa-user icon" title="Account"></i> {/* User icon */}
       </div>
     </nav>
   );

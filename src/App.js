@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar.js'; // Import the navbar component
-import HomePage from './components/HomePage.js'; // Import the HomePage component
+import Contact from './components/Contact.js';
+import HomePage from './components/HomePage.js';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar /> 
-      <HomePage /> 
-    </div>
+    <Routes>
+      <Route path='/' element={<HomePage />} />
+      <Route path='/contact' element={<Contact />} />
+    </Routes>
   );
 }
 
